@@ -14,3 +14,29 @@ import:
 ```swift
 import atomicWrapper
 ```
+
+It can be used it as a property wrapper. But Don't this property wrapper on properties in a function. It may cause issue. Instead, Use this property wrapper on properties in types.
+```swift
+struct A_type {
+    @Atomic
+    var val = 0
+}
+```
+
+Or:
+It can be used as a wrapper
+```swift
+func foo() {
+    let atomicValue = Atomic(0)
+    
+    // write a new value.
+    atomicValue.safe {
+        $0 = 10
+    }
+
+    // read value.
+    let f: (inout Int) -> Int = \.self
+    let gotValue1: Int = atomicValue.safe(f)
+    let gotValue2: Int = atomicValue.safe { $0 }
+}
+```
