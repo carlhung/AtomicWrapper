@@ -37,21 +37,4 @@ final class atomicWrapperTests: XCTestCase, @unchecked Sendable {
             }
         }
     }
-
-    func foo() {
-        let atomicValue = Atomic(0)
-        
-        // write a new value.
-        atomicValue.safe {
-            $0 = 10
-        }
-
-        // read value.
-        let f: (inout Int) -> Int = \.self
-        let val1: Int = atomicValue.safe(f)
-        let val2: Int = atomicValue.safe { $0 }
-        let valInString = atomicValue.safe { (val: inout Int) in
-            val.description
-        }
-    }
 }
