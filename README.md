@@ -15,7 +15,7 @@ import:
 import atomicWrapper
 ```
 
-It can be used it as a property wrapper. But Don't this property wrapper on properties in a function. It may cause issue. Instead, Use this property wrapper on properties in types.
+It can be used it as a property wrapper. But use this property wrapper on properties in a function. It may cause issue. Instead, Use this property wrapper on properties in types.
 ```swift
 struct A_type {
     @Atomic
