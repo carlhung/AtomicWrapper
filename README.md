@@ -43,8 +43,9 @@ func foo() {
     let f: (inout Int) -> Int = \.self
     let val1: Int = atomicValue.safe(f)
     let val2: Int = atomicValue.safe { $0 }
-    let valInString = atomicValue.safe { (val: inout Int) in
+    let valInString1: String = atomicValue.safe { (val: inout Int) in
         val.description
     }
+    let valInString2: String = atomicValue.safe(\.description)
 }
 ```
