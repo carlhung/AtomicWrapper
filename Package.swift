@@ -3,6 +3,8 @@
 
 import PackageDescription
 
+let swiftSettings: [SwiftSetting] = [.unsafeFlags([ "-strict-concurrency=complete"])]
+
 let package = Package(
     name: "atomicWrapper",
     products: [
@@ -15,9 +17,9 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "atomicWrapper", swiftSettings: [.unsafeFlags(["-Xfrontend", "-strict-concurrency=complete"])]),
+            name: "atomicWrapper", swiftSettings: swiftSettings),
         .testTarget(
             name: "atomicWrapperTests",
-            dependencies: ["atomicWrapper"], swiftSettings: [.unsafeFlags(["-Xfrontend", "-strict-concurrency=complete"])]),
+            dependencies: ["atomicWrapper"], swiftSettings: swiftSettings),
     ]
 )
