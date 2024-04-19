@@ -20,6 +20,11 @@ It can be used it as a property wrapper. But Don't this property wrapper on prop
 struct A_type {
     @Atomic
     var val = 0
+
+    func foo {
+        val = 10
+        let _ = val
+    }
 }
 ```
 
