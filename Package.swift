@@ -6,17 +6,17 @@ import PackageDescription
 let swiftSettings: [SwiftSetting] = [.unsafeFlags([ "-strict-concurrency=complete"])]
 
 let package = Package(
-    name: "atomicWrapper",
+    name: "AtomicWrapper",
     products: [
         .library(
-            name: "atomicWrapper",
-            targets: ["atomicWrapper"]),
+            name: "AtomicWrapper",
+            targets: ["AtomicWrapper"]),
     ],
     targets: [
         .target(
-            name: "atomicWrapper", swiftSettings: swiftSettings),
+            name: "AtomicWrapper", swiftSettings: swiftSettings),
         .testTarget(
-            name: "atomicWrapperTests",
-            dependencies: ["atomicWrapper"], swiftSettings: swiftSettings),
+            name: "AtomicWrapperTests",
+            dependencies: ["AtomicWrapper"], swiftSettings: swiftSettings),
     ]
 )

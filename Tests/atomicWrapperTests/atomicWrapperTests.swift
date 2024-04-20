@@ -1,5 +1,5 @@
 import XCTest
-@testable import atomicWrapper
+@testable import AtomicWrapper
 
 final class atomicWrapperTests: XCTestCase, @unchecked Sendable {
 
