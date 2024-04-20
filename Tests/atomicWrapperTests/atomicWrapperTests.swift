@@ -1,7 +1,7 @@
 import XCTest
 @testable import AtomicWrapper
 
-final class atomicWrapperTests: XCTestCase, @unchecked Sendable {
+final class AtomicWrapperTests: XCTestCase, @unchecked Sendable {
 
     let iterations = 100_000_000
 
