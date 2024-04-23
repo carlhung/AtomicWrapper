@@ -7,12 +7,12 @@ Add the line below in `Package.swift`:
 
 Also add below in `Package.swift`:
 ```swift
-dependencies: ["atomicWrapper"]
+dependencies: ["AtomicWrapper"]
 ```
 
 import:
 ```swift
-import atomicWrapper
+import AtomicWrapper
 ```
 
 It can be used it as a property wrapper. But use this property wrapper on properties in a function. It may cause issue. Instead, Use this property wrapper on properties in types.
