@@ -57,3 +57,21 @@ private func performAsync(iterations: Int, execute: @Sendable @escaping () -> Vo
         }
     }
 }
+
+@globalActor
+final actor MyActor {
+    static let shared: MyActor = MyActor()
+}
+
+// @MyActor
+struct ST {
+    @Atomic
+    var val = 0
+
+    @MainActor
+    func foo() async {
+        _val.safe {
+            $0 = 10
+        }
+    }
+}

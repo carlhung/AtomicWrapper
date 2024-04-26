@@ -1,7 +1,7 @@
 import Foundation
 
 @propertyWrapper
-public final class Atomic<T> {
+public final class Atomic<T>: @unchecked Sendable {
     
     @usableFromInline
     let locker: NSLock = NSLock()
@@ -54,5 +54,3 @@ public final class Atomic<T> {
         return try execute(&storedValue)
     }
 }
-
-extension Atomic: @unchecked Sendable where T: Sendable {}
