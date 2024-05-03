@@ -35,13 +35,6 @@ public final class Atomic<T>: @unchecked Sendable {
             }
             yield &storedValue
         }
-        set {
-            locker.lock()
-            defer {
-                locker.unlock()
-            }
-            storedValue = newValue
-        }
     }
 
     @discardableResult

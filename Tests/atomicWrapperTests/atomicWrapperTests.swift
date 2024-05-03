@@ -20,6 +20,9 @@ final class AtomicWrapperTests: XCTestCase, @unchecked Sendable {
     @Atomic
     var arr = [Int]()
 
+    @Atomic
+    var arr2 = [Int]()
+
     func testAsPropertyWrapper() async {
         await performAsync(iterations: iterations) {
             self.arr.append(0)
@@ -37,6 +40,21 @@ final class AtomicWrapperTests: XCTestCase, @unchecked Sendable {
         }
 
         XCTAssertEqual(arr.safe(\.count), iterations)
+    }
+
+    func testWrapperAssignment1() async {
+        await performAsync(iterations: iterations) {
+            self.arr2 = []
+        }
+    }
+
+    func testWrapperAssignment2() async {
+        let arr = Atomic([Int]())
+        await performAsync(iterations: iterations) {
+            arr.safe {
+                $0 = []
+            }
+        }
     }
 
     func testStruct() async {
