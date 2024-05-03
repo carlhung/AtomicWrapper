@@ -1,10 +1,16 @@
 import Foundation
+#if os(Linux)
+    import Glibc
+#else
+    import Darwin
+#endif
+// https://swiftrocks.com/thread-safety-in-swift
 
 @propertyWrapper
 public final class Atomic<T>: @unchecked Sendable {
     
     @usableFromInline
-    let locker: NSLock = NSLock()
+    let locker = NIOLock()//NSLock()
 
     @usableFromInline
     var storedValue: T
