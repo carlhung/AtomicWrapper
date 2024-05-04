@@ -1,9 +1,4 @@
 import Foundation
-#if os(Linux)
-    import Glibc
-#else
-    import Darwin
-#endif
 
 @propertyWrapper
 public final class Atomic<T>: @unchecked Sendable {

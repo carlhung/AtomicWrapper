@@ -1,7 +1,6 @@
 import XCTest
 @testable import AtomicWrapper
 
-
 struct SomeThing {
     @Atomic 
     var arr = [Int]()
