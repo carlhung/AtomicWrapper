@@ -4,13 +4,12 @@ import Foundation
 #else
     import Darwin
 #endif
-// https://swiftrocks.com/thread-safety-in-swift
 
 @propertyWrapper
 public final class Atomic<T>: @unchecked Sendable {
     
     @usableFromInline
-    let locker = NIOLock()//NSLock()
+    let locker = NSLock()
 
     @usableFromInline
     var storedValue: T
