@@ -46,14 +46,4 @@ public final class Atomic<T>: @unchecked Sendable {
         }
         return try execute(&storedValue)
     }
-
-    @discardableResult
-    @inlinable
-    public func safe<R>(_ execute: (inout T) async throws -> R) async rethrows -> R {
-        locker.lock()
-        defer {
-            locker.unlock()
-        }
-        return try await execute(&storedValue)
-    }
 }
