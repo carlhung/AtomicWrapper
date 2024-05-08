@@ -3,6 +3,9 @@ import Foundation
 @propertyWrapper
 public final class Atomic<T>: @unchecked Sendable {
     
+    // lock() and unlock() should be called on the same thread. 
+    // Therefore, between calling lock() and unlock(), It shouldn't have async/await calls. 
+    // Because it doesn't guarantee after the suspension, It will run on the same thread. 
     @usableFromInline
     let locker = NSLock()
 
